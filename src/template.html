@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo List</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="projects">
+                <dialog class="project-dialog">
+                    <form method="dialog" action="#" id="project-form">
+                        <div>
+                            <label for="title">Project Name : </label>
+                            <input type="text" name="name" id="title">
+                        </div>
+                        
+                        <button class="form-cancel">Cancel</button>
+                        <button type="submit" class="form-submit">Confirm</button>
+                        
+                        
+                    </form>
+                </dialog>
+                <button class="add-project">Add New Project</button>
+
+            </div>
+            <div class="todo-list">
+                <dialog class="task-dialog">
+                    <form method="dialog" action="#" id="task-form">
+                        <div>
+                            <label for="name">Task Name : </label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div>
+                            <label for="dueDate">Due Date : </label>
+                            <input type="text" name="dueDate" id="dueDate">
+                        </div>
+                        <div>
+                            <label for="priority">Priority : </label>
+                            <input type="text" name="priority" id="priority">
+                        </div>
+                        
+                        <button class="form-cancel">Cancel</button>
+                        <button type="submit" class="form-submit">Confirm</button>
+                    </form>
+                </dialog>
+                <button class="add-task">Add New Task</button>
+                <div class="tasks">
+                    
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
