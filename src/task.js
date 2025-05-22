@@ -9,6 +9,10 @@ export default class Task {
 
     showTask() {
         $("<div>")
+            .attr({
+                "id": `${this.title.toLowerCase().replaceAll(" ", "-")}`,
+                "data-project-content": ""
+            })
             .append($("<p>").text(this.title))
             .append($("<p>").text(this.dueDate))
             .append($("<p>").text(this.priority))

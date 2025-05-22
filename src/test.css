@@ -1,0 +1,22 @@
+[data-project-content] {
+  display: none;
+}
+
+.active[data-project-content] {
+  display: block;
+}
+
+
+
+.projects-tabs {
+
+}
+
+
+
+.tab.active button {
+  background-color: rgb(61, 113, 255);
+}
+
+
+

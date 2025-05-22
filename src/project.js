@@ -15,6 +15,6 @@ export default class Project {
     }
 
     showProject() {
-        console.log(this._name);
+        return this;
     }
 }

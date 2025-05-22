@@ -1,12 +1,15 @@
 import $ from "jquery";
 import "./styles.css";
+import "./test.css";
 import Project from "./project.js";
 import Task from "./task.js";
+import changeProject from "./tabs.js";
 
 const projectDialog = document.querySelector(".project-dialog")
 const taskDialog = document.querySelector(".task-dialog");
 let projects = [];
 let currentProject = null;
+// let currentButton = null;
 
 $( function() {
     $(".add-project").on("click", () => {
@@ -20,16 +23,15 @@ $( function() {
 $("#project-form").on("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("name")
+    let name = formData.get("name")
     if (name) {
         e.target.reset();
         projectDialog.close();
         const newProject = new Project(name);
         currentProject = newProject;
-        $(`<button>${name}</button>`).insertBefore(".add-project").on("click", () => {
-            currentProject = newProject.showProject();
-        });
-        projects.push(newProject)
+        name.toLowerCase().replaceAll(" ", "-");
+        createProjectTab(name);            
+        projects.push(newProject);
     }
 })
 
@@ -55,4 +57,27 @@ $(".form-cancel").on("click", (e) => {
     e.target.parentElement.reset();
     e.target.parentElement.parentElement.close();
 })
+
+
+
+const testprojects = $('[data-project-target]');
+for(let test of testprojects) changeProject($(test))
+
+function createProjectTab(name) {
+    let btn = `<li data-project-target="#${name.toLowerCase().replaceAll(" ", "-")}" class="active tab"><button>${name}</button></li>`
+    $(".project-tabs").append(btn);
+    btn = $(".project-tabs li:last-child");
+    createProjectTaskList(name);
+    changeProject(btn);
+    btn.click();
+}
+
+function createProjectTaskList(name) {
+    $("<div>")
+        .attr("id", name.toLowerCase().replaceAll(" ", "-"))
+        .appendTo($(".tasks"));
+}
+
+
+    
 

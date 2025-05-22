@@ -14,13 +14,15 @@
                             <label for="title">Project Name : </label>
                             <input type="text" name="name" id="title">
                         </div>
-                        
                         <button class="form-cancel">Cancel</button>
                         <button type="submit" class="form-submit">Confirm</button>
-                        
-                        
                     </form>
                 </dialog>
+                <ul class="project-tabs">
+                    <li data-project-target="#home" class="active tab"><button>Home</button></li>
+                    <li data-project-target="#pricing" class="tab"><button>Pricing</button></li>
+                    <li data-project-target="#about" class="tab"><button>About</button></li>
+                </ul>
                 <button class="add-project">Add New Project</button>
 
             </div>
@@ -46,9 +48,19 @@
                 </dialog>
                 <button class="add-task">Add New Task</button>
                 <div class="tasks">
-                    
+                    <div id="home" data-project-content class="active">
+                        <h1>Home</h1>
+                        <p>This is the home</p>
+                    </div>
+                    <div id="pricing" data-project-content>
+                        <h1>Pricing</h1>
+                        <p>Some information on pricing</p>
+                    </div>
+                    <div id="about" data-project-content>
+                        <h1>About</h1>
+                        <p>Let me tell you about me</p>
+                    </div>
                 </div>
-
             </div>
         </div>
     </body>
